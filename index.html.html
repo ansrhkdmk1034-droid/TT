@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+body{margin:0;font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.8}
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+input,select,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ landingSplit }}" hint-placeholder-val="{{ true }}">
+<main data-screen-label="01 첫 화면 (분할)" style="min-height:100vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+  <a href="#drone" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:48px clamp(24px,5vw,72px);background:#0f2a4a;color:#fff;min-height:50vh">
+    <div style="display:flex;align-items:center;gap:12px;font-size:14px;letter-spacing:.08em;color:#9cc6ee">AGRICULTURAL DRONE · BOSEONG</div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="width:132px;height:103px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;padding:10px"><img src="assets/bd-emblem.png" alt="형제드론 로고" style="width:100%;height:100%;object-fit:contain"></div>
+      <h1 style="margin:0;font-size:clamp(44px,6vw,80px);font-weight:800;letter-spacing:-.03em;line-height:1.05">형제드론</h1>
+      <p style="margin:0;font-size:19px;line-height:1.6;color:#c9dcf0;max-width:440px;text-wrap:pretty">농업용 드론 판매 · 수리 · 정비 · 세척 · 방제 · 외벽 청소</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700"><span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#2f9ae0">→</span>형제드론 바로가기</div>
+  </a>
+  <a href="#solar" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:48px clamp(24px,5vw,72px);background:#fbf6ee;color:#1c2230;min-height:50vh">
+    <div style="display:flex;align-items:center;gap:12px;font-size:14px;letter-spacing:.08em;color:#b05a08">CLEANING SERVICE · SOLARCARE</div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="width:132px;height:110px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;box-shadow:0 1px 0 #e9dfcf"><img src="assets/solarcare-logo.png" alt="솔라케어 로고" style="width:100%;height:100%;object-fit:contain"></div>
+      <h1 style="margin:0;font-size:clamp(44px,6vw,80px);font-weight:800;letter-spacing:-.03em;line-height:1.05">솔라케어</h1>
+      <p style="margin:0;font-size:19px;line-height:1.6;color:#5a5348;max-width:440px;text-wrap:pretty">입주청소 · 퇴거청소 · 에어컨 청소</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700"><span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#ea7a12;color:#fff">→</span>솔라케어 바로가기</div>
+  </a>
+</main>
+</sc-if>
+<sc-if value="{{ landingCards }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="01 첫 화면 (카드)" style="min-height:100vh;background:#f3f4f2;color:#16202c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px;padding:64px 24px;box-sizing:border-box">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+    <div style="font-size:14px;letter-spacing:.1em;color:#5c6670">전남 보성 · 010-5027-8529</div>
+    <h1 style="margin:0;font-size:clamp(34px,4.5vw,56px);font-weight:800;letter-spacing:-.03em">어떤 서비스가 필요하신가요?</h1>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;width:100%;max-width:960px">
+    <a href="#drone" style="display:flex;flex-direction:column;gap:20px;padding:36px;border-radius:20px;background:#fff;border:1px solid #dfe3e6" style-hover="{{ cardHover }}">
+      <div style="height:150px;display:flex;align-items:center;justify-content:center"><img src="assets/bd-emblem.png" alt="형제드론 로고" style="height:100%;object-fit:contain"></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font-size:30px;font-weight:800;color:#0f2a4a">형제드론</h2><p style="margin:0;font-size:17px;line-height:1.6;color:#4b5763">농업용 드론 판매 · 수리 · 정비 · 세척 · 방제 · 외벽 청소</p></div>
+      <div style="margin-top:auto;display:flex;align-items:center;justify-content:center;height:52px;border-radius:12px;background:#1f62b0;color:#fff;font-weight:700;font-size:17px">형제드론 보기 →</div>
+    </a>
+    <a href="#solar" style="display:flex;flex-direction:column;gap:20px;padding:36px;border-radius:20px;background:#fff;border:1px solid #dfe3e6">
+      <div style="height:150px;display:flex;align-items:center;justify-content:center"><img src="assets/solarcare-logo.png" alt="솔라케어 로고" style="height:100%;object-fit:contain"></div>
+      <div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font-size:30px;font-weight:800;color:#1c2230">솔라케어</h2><p style="margin:0;font-size:17px;line-height:1.6;color:#4b5763">입주청소 · 퇴거청소 · 에어컨 청소</p></div>
+      <div style="margin-top:auto;display:flex;align-items:center;justify-content:center;height:52px;border-radius:12px;background:#ea7a12;color:#fff;font-weight:700;font-size:17px">솔라케어 보기 →</div>
+    </a>
+  </div>
+</main>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isDrone }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="02 형제드론" style="background:#f5f8fb;color:#0f2a4a">
+  <header style="position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid #e1e8ef">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <a href="#drone" style="display:flex;align-items:center;gap:10px"><img src="assets/bd-emblem.png" alt="" style="height:40px"><b style="font-size:20px;letter-spacing:-.02em">형제드론</b></a>
+      <nav style="display:flex;gap:20px;flex-wrap:wrap;font-size:15px;color:#3d5570;flex:1">
+        <a href="#d-services">서비스</a><a href="#d-sales">판매 기종</a><a href="#d-price">요금</a><a href="#d-gallery">작업 사진</a><a href="#d-faq">자주 묻는 질문</a><a href="#d-map">오시는 길</a>
+      </nav>
+      <a href="#solar" style="font-size:14px;color:#b05a08;font-weight:600">솔라케어 →</a>
+      <a href="#d-quote" style="padding:10px 18px;border-radius:10px;background:#1f62b0;color:#fff;font-weight:700;font-size:15px">견적 요청</a>
+    </div>
+  </header>
+
+  <section style="max-width:1200px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="font-size:15px;font-weight:600;color:#1f62b0;letter-spacing:.04em">전남 보성 농업용 드론 전문</div>
+      <h1 style="margin:0;font-size:clamp(38px,5vw,62px);font-weight:800;line-height:1.15;letter-spacing:-.035em;text-wrap:balance">드론 구매부터 방제, 정비까지 한 곳에서</h1>
+      <p style="margin:0;font-size:19px;line-height:1.7;color:#3d5570;max-width:520px;text-wrap:pretty">형제드론은 보성에서 농업용 드론을 직접 운영하며 판매, 수리·정비, 세척, 방제 작업과 외벽 청소를 하고 있습니다.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#d-quote" style="padding:16px 26px;border-radius:12px;background:#1f62b0;color:#fff;font-weight:700;font-size:17px">견적 요청하기</a>
+        <a href="tel:01050278529" style="padding:16px 26px;border-radius:12px;background:#fff;border:1px solid #c9d6e3;font-weight:700;font-size:17px">010-5027-8529</a>
+      </div>
+    </div>
+    <div style="aspect-ratio:4/3;border-radius:20px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">방제 현장 사진</div>
+  </section>
+
+  <section id="d-services" style="background:#fff;border-top:1px solid #e1e8ef;border-bottom:1px solid #e1e8ef">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">SERVICES</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">서비스 안내</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:#e1e8ef;border:1px solid #e1e8ef;border-radius:16px;overflow:hidden">
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">01</div><h3 style="margin:0;font-size:23px;font-weight:700">드론 판매</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">농업용 드론 전 기종을 판매합니다. 농지 규모와 작업 용도에 맞는 기종을 상담해 드립니다.</p></div>
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">02</div><h3 style="margin:0;font-size:23px;font-weight:700">수리 · 정비</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">기체 점검, 부품 교체, 고장 수리를 합니다. 시즌 전 점검으로 작업 중 고장을 줄일 수 있습니다.</p></div>
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">03</div><h3 style="margin:0;font-size:23px;font-weight:700">드론 세척</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">방제 후 남은 약제를 세척해 노즐, 펌프, 모터 부식을 막습니다.</p></div>
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">04</div><h3 style="margin:0;font-size:23px;font-weight:700">드론 방제</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">논·밭 병해충 방제를 드론으로 대행합니다.</p></div>
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">05</div><h3 style="margin:0;font-size:23px;font-weight:700">비료 작업 · 라이그라스</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">드론으로 비료 살포와 라이그라스 파종 작업을 합니다.</p></div>
+        <div style="background:#fff;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-size:14px;color:#2f9ae0;font-weight:700">06</div><h3 style="margin:0;font-size:23px;font-weight:700">외벽 청소</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#4b6177">상가, 창고 등 건물 외벽을 드론으로 청소합니다. 건물 높이와 면적을 확인 후 견적을 드립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="d-sales" style="max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+    <div style="aspect-ratio:4/3;border-radius:20px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">판매 드론 / 매장 사진</div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">SALES</div>
+      <h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">농업용 드론 전 기종 판매</h2>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:#3d5570;text-wrap:pretty">특정 브랜드에 한정하지 않고 농가에 맞는 기종을 비교해 추천합니다.</p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:17px">
+        <li style="display:flex;gap:12px;align-items:baseline"><span style="width:8px;height:8px;border-radius:50%;background:#2f9ae0;flex:none;transform:translateY(-2px)"></span>농지 면적과 작물에 맞는 기종 상담</li>
+        <li style="display:flex;gap:12px;align-items:baseline"><span style="width:8px;height:8px;border-radius:50%;background:#2f9ae0;flex:none;transform:translateY(-2px)"></span>구매 후 수리 · 정비 · 세척까지 직접 관리</li>
+        <li style="display:flex;gap:12px;align-items:baseline"><span style="width:8px;height:8px;border-radius:50%;background:#2f9ae0;flex:none;transform:translateY(-2px)"></span>현장 운영 경험을 바탕으로 한 사용 안내</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="d-price" style="background:#0f2a4a;color:#fff">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#7fbdf0;letter-spacing:.08em">PRICE</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">요금 안내</h2><p style="margin:0;font-size:17px;color:#b7cde3;line-height:1.6">작업 면적, 약제, 기종 상태에 따라 금액이 달라집니다. 정확한 금액은 견적 요청으로 안내드립니다.</p></div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #2c4a6c">
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #2c4a6c;font-size:17px"><b>드론 방제</b><span style="color:#b7cde3">면적(평·필지) 기준</span><span style="text-align:right;font-weight:700">견적 문의</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #2c4a6c;font-size:17px"><b>비료 작업 · 라이그라스</b><span style="color:#b7cde3">면적 기준</span><span style="text-align:right;font-weight:700">견적 문의</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #2c4a6c;font-size:17px"><b>드론 세척</b><span style="color:#b7cde3">기체 1대 기준</span><span style="text-align:right;font-weight:700">견적 문의</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #2c4a6c;font-size:17px"><b>수리 · 정비</b><span style="color:#b7cde3">점검 후 부품·공임</span><span style="text-align:right;font-weight:700">견적 문의</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #2c4a6c;font-size:17px"><b>외벽 청소</b><span style="color:#b7cde3">건물 높이·면적 기준</span><span style="text-align:right;font-weight:700">견적 문의</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="d-gallery" style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">GALLERY</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">작업 사진</h2></div><a href="https://blog.naver.com/brother_drone_" target="_blank" style="font-size:16px;font-weight:600;color:#1f62b0">블로그에서 더 보기 →</a></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">방제 작업</div>
+      <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">드론 수리</div>
+      <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">드론 세척</div>
+      <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">외벽 청소</div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid #e1e8ef;border-bottom:1px solid #e1e8ef">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">REVIEWS</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">고객 후기</h2></div>
+        <div style="padding:28px;border-radius:16px;background:#f5f8fb;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:18px;line-height:1.7;color:#8aa0b5">고객 후기 내용을 입력하세요.</p><div style="font-size:15px;color:#6b8197">— 고객명 · 지역 · 서비스</div></div>
+        <div style="padding:28px;border-radius:16px;background:#f5f8fb;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:18px;line-height:1.7;color:#8aa0b5">고객 후기 내용을 입력하세요.</p><div style="font-size:15px;color:#6b8197">— 고객명 · 지역 · 서비스</div></div>
+      </div>
+      <div id="d-faq" style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">FAQ</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">자주 묻는 질문</h2></div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #e1e8ef">
+          <details style="border-bottom:1px solid #e1e8ef;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">방제 작업은 언제 예약해야 하나요?<span style="color:#2f9ae0">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#4b6177">방제 시기에는 예약이 몰립니다. 작업 희망일보다 여유 있게 연락 주시면 일정을 조율해 드립니다.</p></details>
+          <details style="border-bottom:1px solid #e1e8ef;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">다른 곳에서 산 드론도 수리되나요?<span style="color:#2f9ae0">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#4b6177">구매처와 관계없이 점검 후 수리 가능 여부와 비용을 안내드립니다.</p></details>
+          <details style="border-bottom:1px solid #e1e8ef;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">드론 세척은 꼭 해야 하나요?<span style="color:#2f9ae0">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#4b6177">남은 약제는 노즐, 펌프, 모터 부식의 원인이 됩니다. 시즌이 끝난 뒤 세척하면 고장을 줄일 수 있습니다.</p></details>
+          <details style="border-bottom:1px solid #e1e8ef;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">외벽 청소는 어떤 건물이 가능한가요?<span style="color:#2f9ae0">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#4b6177">상가, 창고 등 건물 규모와 높이를 확인한 뒤 가능 여부와 견적을 안내드립니다.</p></details>
+          <details style="border-bottom:1px solid #e1e8ef;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">작업 지역은 어디까지인가요?<span style="color:#2f9ae0">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#4b6177">보성군 전 지역에서 작업하며, 인근 전남 지역은 상담 후 출장 가능합니다.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="d-quote" style="max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:14px;font-weight:700;color:#1f62b0;letter-spacing:.08em">QUOTE</div>
+      <h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">견적 요청</h2>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:#3d5570">남겨주신 연락처로 직접 연락드립니다. 급한 작업은 전화로 문의해 주세요.</p>
+      <a href="tel:01050278529" style="font-size:34px;font-weight:800;letter-spacing:-.02em;color:#1f62b0">010-5027-8529</a>
+      <div id="d-map" style="display:flex;flex-direction:column;gap:14px;padding-top:12px">
+        <h3 style="margin:0;font-size:22px;font-weight:700">오시는 길 · 작업 지역</h3>
+        <div style="font-size:17px;line-height:1.7;color:#3d5570">전라남도 보성군 우산리 398-1<br>작업 지역: 보성군 전 지역 · 인근 전남 지역 상담</div>
+        <div style="aspect-ratio:16/9;border-radius:14px;background:repeating-linear-gradient(135deg,#e3ebf3 0 12px,#edf2f7 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#6b8197">지도 (네이버 지도 삽입)</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:16px;font-weight:600;color:#1f62b0"><a href="https://map.naver.com/p/search/보성군%20우산리%20398-1" target="_blank">네이버 지도에서 보기 →</a><a href="https://blog.naver.com/brother_drone_" target="_blank">네이버 블로그 →</a></div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #e1e8ef;border-radius:20px;padding:32px;align-self:start">
+      <sc-if value="{{ droneSent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:40px 0;text-align:center"><div style="font-size:24px;font-weight:800">견적 요청이 접수되었습니다</div><p style="margin:0;font-size:17px;color:#4b6177">확인 후 연락드리겠습니다.</p><button onClick="{{ resetDrone }}" style="margin:12px auto 0;padding:12px 20px;border-radius:10px;border:1px solid #c9d6e3;background:#fff;font-size:16px;cursor:pointer">다시 작성</button></div>
+      </sc-if>
+      <sc-if value="{{ droneForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submitDrone }}" style="display:flex;flex-direction:column;gap:18px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">이름<input required="required" name="name" style="height:52px;padding:0 14px;border:1px solid #c9d6e3;border-radius:10px;font-size:17px;background:#fbfcfd"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">연락처<input required="required" name="phone" type="tel" placeholder="010-0000-0000" style="height:52px;padding:0 14px;border:1px solid #c9d6e3;border-radius:10px;font-size:17px;background:#fbfcfd"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">서비스<select name="service" style="height:52px;padding:0 12px;border:1px solid #c9d6e3;border-radius:10px;font-size:17px;background:#fbfcfd"><option>드론 방제</option><option>비료 작업 · 라이그라스</option><option>드론 판매 상담</option><option>수리 · 정비</option><option>드론 세척</option><option>외벽 청소</option></select></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">작업 지역 · 면적<input name="area" placeholder="예: 보성읍, 3,000평" style="height:52px;padding:0 14px;border:1px solid #c9d6e3;border-radius:10px;font-size:17px;background:#fbfcfd"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">요청 내용<textarea name="msg" rows="4" style="padding:12px 14px;border:1px solid #c9d6e3;border-radius:10px;font-size:17px;background:#fbfcfd;resize:vertical"></textarea></label>
+          <button type="submit" style="height:56px;border:0;border-radius:12px;background:#1f62b0;color:#fff;font-size:18px;font-weight:700;cursor:pointer">견적 요청 보내기</button>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="background:#0b1f37;color:#9fb5cc;font-size:14px;line-height:1.8">
+    <div style="max-width:1200px;margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap"><div><b style="color:#fff;font-size:16px">형제드론</b><br>전라남도 보성군 우산리 398-1 · 010-5027-8529</div><a href="#solar" style="color:#f3a35a;font-weight:600">청소 서비스는 솔라케어 →</a></div>
+  </footer>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSolar }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="03 솔라케어" style="background:#fbf8f3;color:#1c2230">
+  <header style="position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid #ece4d8">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <a href="#solar" style="display:flex;align-items:center;gap:10px"><img src="assets/solarcare-logo.png" alt="" style="height:44px"><b style="font-size:20px;letter-spacing:-.02em">솔라케어</b></a>
+      <nav style="display:flex;gap:20px;flex-wrap:wrap;font-size:15px;color:#5a5348;flex:1">
+        <a href="#s-services">서비스</a><a href="#s-price">요금</a><a href="#s-gallery">작업 사진</a><a href="#s-faq">자주 묻는 질문</a><a href="#s-map">오시는 길</a>
+      </nav>
+      <a href="#drone" style="font-size:14px;color:#1f62b0;font-weight:600">형제드론 →</a>
+      <a href="#s-quote" style="padding:10px 18px;border-radius:10px;background:#ea7a12;color:#fff;font-weight:700;font-size:15px">견적 요청</a>
+    </div>
+  </header>
+
+  <section style="max-width:1200px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="font-size:15px;font-weight:600;color:#c4620a;letter-spacing:.04em">청소 전문</div>
+      <h1 style="margin:0;font-size:clamp(38px,5vw,62px);font-weight:800;line-height:1.15;letter-spacing:-.035em;text-wrap:balance">이사 전후, 집 안 구석구석 깨끗하게</h1>
+      <p style="margin:0;font-size:19px;line-height:1.7;color:#5a5348;max-width:520px;text-wrap:pretty">솔라케어는 입주청소, 퇴거청소, 에어컨 청소를 하는 청소 전문 업체입니다.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#s-quote" style="padding:16px 26px;border-radius:12px;background:#ea7a12;color:#fff;font-weight:700;font-size:17px">견적 요청하기</a>
+        <a href="tel:01050278529" style="padding:16px 26px;border-radius:12px;background:#fff;border:1px solid #e3d8c7;font-weight:700;font-size:17px">010-5027-8529</a>
+      </div>
+    </div>
+    <div style="aspect-ratio:4/3;border-radius:20px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">청소 완료 실내 사진</div>
+  </section>
+
+  <section id="s-services" style="background:#fff;border-top:1px solid #ece4d8;border-bottom:1px solid #ece4d8">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">SERVICES</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">서비스 안내</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="aspect-ratio:3/2;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">입주청소 사진</div><h3 style="margin:0;font-size:24px;font-weight:700">입주청소</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#5a5348">새 집에 들어가기 전 공사 먼지, 창틀, 주방, 욕실을 청소합니다.</p></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="aspect-ratio:3/2;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">퇴거청소 사진</div><h3 style="margin:0;font-size:24px;font-weight:700">퇴거청소</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#5a5348">이사 나간 뒤 다음 입주자를 위해 집 전체를 정리하고 청소합니다.</p></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><div style="aspect-ratio:3/2;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">에어컨 분해 세척 사진</div><h3 style="margin:0;font-size:24px;font-weight:700">에어컨 청소</h3><p style="margin:0;font-size:16px;line-height:1.7;color:#5a5348">벽걸이, 스탠드, 천장형 에어컨을 분해해 내부까지 세척합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s-price" style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">PRICE</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">요금 안내</h2><p style="margin:0;font-size:17px;color:#5a5348;line-height:1.6">평형, 오염도, 에어컨 종류에 따라 달라집니다. 정확한 금액은 견적 요청으로 안내드립니다.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+      <div style="background:#fff;border:1px solid #ece4d8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px"><div style="font-size:18px;font-weight:700">입주청소</div><div style="font-size:15px;color:#7a7062">평형 기준</div><div style="font-size:26px;font-weight:800;color:#c4620a;margin-top:8px">견적 문의</div></div>
+      <div style="background:#fff;border:1px solid #ece4d8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px"><div style="font-size:18px;font-weight:700">퇴거청소</div><div style="font-size:15px;color:#7a7062">평형 · 오염도 기준</div><div style="font-size:26px;font-weight:800;color:#c4620a;margin-top:8px">견적 문의</div></div>
+      <div style="background:#fff;border:1px solid #ece4d8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px"><div style="font-size:18px;font-weight:700">에어컨 청소</div><div style="font-size:15px;color:#7a7062">벽걸이 · 스탠드 · 천장형 대수 기준</div><div style="font-size:26px;font-weight:800;color:#c4620a;margin-top:8px">견적 문의</div></div>
+    </div>
+  </section>
+
+  <section id="s-gallery" style="background:#fff;border-top:1px solid #ece4d8;border-bottom:1px solid #ece4d8">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">BEFORE · AFTER</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">작업 사진</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+        <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">주방 청소 전/후</div>
+        <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">욕실 청소 전/후</div>
+        <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">창틀 청소 전/후</div>
+        <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">에어컨 내부 세척</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">REVIEWS</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">고객 후기</h2></div>
+      <div style="padding:28px;border-radius:16px;background:#fff;border:1px solid #ece4d8;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:18px;line-height:1.7;color:#a3968a">고객 후기 내용을 입력하세요.</p><div style="font-size:15px;color:#7a7062">— 고객명 · 지역 · 서비스</div></div>
+      <div style="padding:28px;border-radius:16px;background:#fff;border:1px solid #ece4d8;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:18px;line-height:1.7;color:#a3968a">고객 후기 내용을 입력하세요.</p><div style="font-size:15px;color:#7a7062">— 고객명 · 지역 · 서비스</div></div>
+    </div>
+    <div id="s-faq" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">FAQ</div><h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">자주 묻는 질문</h2></div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #ece4d8">
+        <details style="border-bottom:1px solid #ece4d8;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">청소 시간은 얼마나 걸리나요?<span style="color:#ea7a12">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#5a5348">평형과 오염도에 따라 다릅니다. 견적 상담 때 예상 시간을 함께 안내드립니다.</p></details>
+        <details style="border-bottom:1px solid #ece4d8;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">청소할 때 집에 있어야 하나요?<span style="color:#ea7a12">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#5a5348">시작과 마무리 확인 때만 계시면 됩니다. 일정은 상담 시 조율합니다.</p></details>
+        <details style="border-bottom:1px solid #ece4d8;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">에어컨은 어떤 종류가 가능한가요?<span style="color:#ea7a12">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#5a5348">벽걸이, 스탠드, 천장형 모두 상담 가능합니다. 모델명을 알려주시면 더 정확히 안내드립니다.</p></details>
+        <details style="border-bottom:1px solid #ece4d8;padding:20px 0"><summary style="font-size:18px;font-weight:700;display:flex;justify-content:space-between;gap:16px">작업 지역은 어디까지인가요?<span style="color:#ea7a12">+</span></summary><p style="margin:12px 0 0;font-size:16px;line-height:1.7;color:#5a5348">전국 어디든 작업 가능합니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="s-quote" style="background:#fff;border-top:1px solid #ece4d8">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:14px;font-weight:700;color:#c4620a;letter-spacing:.08em">QUOTE</div>
+        <h2 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.03em">견적 요청</h2>
+        <p style="margin:0;font-size:18px;line-height:1.7;color:#5a5348">평형과 희망 날짜를 남겨주시면 연락드립니다.</p>
+        <a href="tel:01050278529" style="font-size:34px;font-weight:800;letter-spacing:-.02em;color:#c4620a">010-5027-8529</a>
+        <div id="s-map" style="display:flex;flex-direction:column;gap:14px;padding-top:12px">
+          <h3 style="margin:0;font-size:22px;font-weight:700">오시는 길 · 작업 지역</h3>
+          <div style="font-size:17px;line-height:1.7;color:#5a5348">선운로2번길 63-5 1층 104호<br>작업 지역: 전국 어디든</div>
+          <div style="aspect-ratio:16/9;border-radius:14px;background:repeating-linear-gradient(135deg,#f1e8db 0 12px,#f7f1e8 12px 24px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#9a8a72">지도 (네이버 지도 삽입)</div>
+          <a href="https://map.naver.com/p/search/선운로2번길%2063-5" target="_blank" style="font-size:16px;font-weight:600;color:#c4620a">네이버 지도에서 보기 →</a>
+        </div>
+      </div>
+      <div style="background:#fbf8f3;border:1px solid #ece4d8;border-radius:20px;padding:32px;align-self:start">
+        <sc-if value="{{ solarSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px;padding:40px 0;text-align:center"><div style="font-size:24px;font-weight:800">견적 요청이 접수되었습니다</div><p style="margin:0;font-size:17px;color:#5a5348">확인 후 연락드리겠습니다.</p><button onClick="{{ resetSolar }}" style="margin:12px auto 0;padding:12px 20px;border-radius:10px;border:1px solid #e3d8c7;background:#fff;font-size:16px;cursor:pointer">다시 작성</button></div>
+        </sc-if>
+        <sc-if value="{{ solarForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submitSolar }}" style="display:flex;flex-direction:column;gap:18px">
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">이름<input required="required" name="name" style="height:52px;padding:0 14px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff"></label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">연락처<input required="required" name="phone" type="tel" placeholder="010-0000-0000" style="height:52px;padding:0 14px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff"></label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">서비스<select name="service" style="height:52px;padding:0 12px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff"><option>입주청소</option><option>퇴거청소</option><option>에어컨 청소</option></select></label>
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">평형 · 대수<input name="size" placeholder="예: 32평" style="height:52px;padding:0 14px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff;min-width:0"></label>
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">희망 날짜<input name="date" type="date" style="height:52px;padding:0 14px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff;min-width:0"></label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600">주소 · 요청 내용<textarea name="msg" rows="4" style="padding:12px 14px;border:1px solid #e3d8c7;border-radius:10px;font-size:17px;background:#fff;resize:vertical"></textarea></label>
+            <button type="submit" style="height:56px;border:0;border-radius:12px;background:#ea7a12;color:#fff;font-size:18px;font-weight:700;cursor:pointer">견적 요청 보내기</button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#1c2230;color:#b3ab9f;font-size:14px;line-height:1.8">
+    <div style="max-width:1200px;margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap"><div><b style="color:#fff;font-size:16px">솔라케어</b><br>선운로2번길 63-5 1층 104호 · 010-5027-8529</div><a href="#drone" style="color:#7fbdf0;font-weight:600">농업용 드론은 형제드론 →</a></div>
+  </footer>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;landing&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;분할&quot;,&quot;카드&quot;],&quot;default&quot;:&quot;분할&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;첫 화면&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', droneSent: false, solarSent: false };
+  route = () => {
+    const h = decodeURIComponent(location.hash.slice(1));
+    const page = h === 'drone' || h.startsWith('d-') ? 'drone' : h === 'solar' || h.startsWith('s-') ? 'solar' : 'home';
+    const changed = page !== this.state.page;
+    this.setState({ page }, () => {
+      const go = () => {
+        const el = h && h !== page ? document.getElementById(h) : null;
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: 'instant' });
+        else window.scrollTo({ top: 0, behavior: 'instant' });
+      };
+      requestAnimationFrame(() => requestAnimationFrame(go));
+      setTimeout(go, 120);
+    });
+  };
+  componentDidMount() { this.route(); window.addEventListener('hashchange', this.route); }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.route); }
+  renderVals() {
+    const { page, droneSent, solarSent } = this.state;
+    const split = (this.props.landing ?? '분할') === '분할';
+    return {
+      isHome: page === 'home', isDrone: page === 'drone', isSolar: page === 'solar',
+      landingSplit: split, landingCards: !split,
+      cardHover: { borderColor: '#1f62b0' },
+      droneSent, droneForm: !droneSent, solarSent, solarForm: !solarSent,
+      submitDrone: e => { e.preventDefault(); this.setState({ droneSent: true }); },
+      submitSolar: e => { e.preventDefault(); this.setState({ solarSent: true }); },
+      resetDrone: () => this.setState({ droneSent: false }),
+      resetSolar: () => this.setState({ solarSent: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
